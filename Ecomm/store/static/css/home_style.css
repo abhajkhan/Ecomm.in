@@ -1,0 +1,11 @@
+/* Adjust the carousel height */
+.carousel-item {
+    height: 200px; /* You can set the height to whatever value you want */
+}
+
+/* Make images fill the container */
+.carousel-item img {
+    object-fit: cover; /* This ensures the image covers the entire space without stretching */
+    height: 100%; /* The image will take up the entire height of the carousel */
+    width: 100%; /* Ensure the image fills the entire width */
+}

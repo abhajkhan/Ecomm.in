@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,44 +7,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {% block title %}Ecomm.in{% endblock %} </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href=" {% static "css/home_style.css" %} "
+
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="">Ecomm.in</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url "product_list" %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">About Us</a>
-                    </li>
-                </ul>
+<body>    
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url "homepage" %}">Ecomm.in</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "homepage" %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "product_list" %}">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "contact_us" %}">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "about_us" %}">About Us</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
     <main>
         {% block content %}
         {% endblock content %}
     </main>
-    <footer class="text-bg-dark">
-        <p>&copy; 2024 Ecomm.in All Rights Reserved.</p>
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-md-4">
+                    <h5>About Ecomm.in</h5>
+                    <p>
+                        Ecomm.in is your trusted platform for seamless online shopping, offering a wide range of products at competitive prices. 
+                    </p>
+                </div>
+                <!-- Quick Links Section -->
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'product_list' %}" class="text-light text-decoration-none">Shop</a></li>
+                        <li><a href="{% url 'about_us' %}" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="{% url 'contact_us' %}" class="text-light text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Information -->
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: <a href="mailto:support@ecomm.in" class="text-light text-decoration-none">support@ecomm.in</a></p>
+                    <p>Phone: +91 98765 43210</p>
+                    <p>Follow Us: 
+                        <a href="#" class="text-light text-decoration-none me-2">Facebook</a>
+                        <a href="#" class="text-light text-decoration-none me-2">Twitter</a>
+                        <a href="#" class="text-light text-decoration-none">Instagram</a>
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; {{ current_year }} Ecomm.in. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
+    
 
 </body>
 
