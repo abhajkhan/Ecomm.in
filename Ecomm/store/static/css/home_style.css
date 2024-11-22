@@ -6,6 +6,5 @@
 /* Make images fill the container */
 .carousel-item img {
     object-fit: cover; /* This ensures the image covers the entire space without stretching */
-    height: 100%; /* The image will take up the entire height of the carousel */
-    width: 100%; /* Ensure the image fills the entire width */
+     /* Ensure the image fills the entire width */
 }
