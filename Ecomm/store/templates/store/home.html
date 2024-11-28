@@ -32,7 +32,7 @@
         <h3 class="mb-3">Explore by Categories:</h3>
         {% for category in categories %}
         <div class="col-md-1 d-flex flex-wrap flex-column justify-content-center">
-            {% for product in category.products.all|slice:":1" %}
+            {% for product in category.related_images|slice:":1" %}
             <div class="d-flex flex-row justify-content-center"><img src="{{ product.image.url }}"
                     alt="{{ product.title }}" class="img-thumbnail mb-2 object-fit-cover"
                     style="width: 75px; height: 75px;"></div>
@@ -50,7 +50,7 @@
             <div class="card p-3 justify-content-between">
                 <h5 class="card-title"> {{category.description}} </h5>
                 <div class="car-body d-flex flex-wrap justify-content-between">
-                    {% for product in category.products.all|slice:":4" %}
+                    {% for product in category.related_images|slice:":4" %}
                     <img src="{{ product.image.url }}" alt="{{ product.title }}"
                         class="img-thumbnail me-2 mb-2 object-fit-cover" style="width: 75px; height: 75px;">
                     {% endfor %}

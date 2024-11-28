@@ -1,9 +1,10 @@
 from django.shortcuts import render
+from django.db.models import Prefetch
 from .models import Product, Category
 # Create your views here.
 
 def homepage(request):
-    categories = Category.objects.prefetch_related('products')
+    categories = Category.objects.prefetch_related(Prefetch('products', queryset= Product.objects.only('id', 'image'), to_attr='related_images'))
     return render(request, 'store/home.html', {'categories': categories})
 
 def category_products(request,category_id):
